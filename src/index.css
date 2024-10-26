@@ -1,13 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
+  @apply bg-slate-50;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.page {
+  @apply bg-slate-100 relative
+}
+
+.dynamic-container {
+  @apply p-4 lg:container lg:mx-auto lg:py-8 relative z-[2]
+}
+.dynamic-row {
+  @apply flex flex-wrap flex-auto
+}
+.dynamic-column {
+  @apply flex items-center gap-4
+}
+
+.input-search {
+  @apply w-full rounded-[8px] border-2 border-[#D9D9D9] font-[400] text-[16px] lg:text-[24px] text-[#B6B6B6] py-2 pl-10 pr-[86px] lg:pl-12 lg:pr-[120px] focus-visible:outline-[#00665E] focus-within:text-black
+}
+
+.site-header {
+  @apply fixed top-0 left-0 w-full z-10 bg-white lg:bg-transparent lg:h-0 transition-all
+}
+.site-header.is-scrolling {
+  @apply lg:h-[96px] lg:bg-white transition-all
+}
+.site-header .dynamic-container {
+  @apply p-4 flex items-center justify-between gap-8
+}
+.site-header .dynamic-column {
+  @apply gap-8
+}
+
+.site-logo {
+  @apply inline-block uppercase text-[26px] text-[#00665E] font-[600] leading-[1] lg:text-[34px]
+}
+
+.site-panel {
+  @apply bg-[#00665E] mt-[58px] flex items-center justify-center fixed top-0 right-0 h-screen transition-all z-[99999]
+}
+.site-panel .wrapper {
+  @apply w-full relative p-4
+}
+
+.site-main {
+  @apply mt-[58px] lg:mt-[96px] relative
+}
+
+.hero-cover,
+.hero-cover__wrapper,
+.hero-cover__track,
+.hero-cover__slide {
+  @apply h-[348px] lg:h-full
+}
+.hero-cover__color {
+  @apply rounded-[32px] absolute top-0 left-0 z-[2] w-full h-full
+}
+.hero-cover__image {
+  @apply rounded-[32px] object-cover w-full h-full
+}
+.hero-cover__slide {
+  width: calc(20% - 16px) !important;
+}
+.hero-cover__slide.is-active {
+  width: calc(80% - 16px) !important;
+}
+
+.course-cover {
+
+}
+.course-cover__slide {
+  @apply bg-white rounded-b-[24px] h-full shadow-sm shadow-[#0000000A]
+}
+.course-cover__title {
+  @apply absolute top-2 left-2 z-[2] p-2 font-[600] text-white text-[16px]
+}
+.course-cover__color {
+  @apply absolute top-0 left-0 w-full h-full rounded-t-[24px]
+}
+.course-cover__image {
+  @apply aspect-video rounded-t-[24px]
+}
+
+.choice-card {
+  @apply bg-white lg:rounded-[24px] shadow-sm shadow-[#F6F6F6] lg:shadow-[#0000000A] h-full p-8
+}
+.choice-card__icon {
+  @apply w-[30px] lg:w-[38px]
+}
+.choice-card__title {
+  @apply flex-1 text-[16px] lg:text-[22px] text-black font-[600] px-4
+}
+.choice-card__desc {
+  @apply flex-1 text-[14px] lg:text-[18px] text-[#6a6a6a] font-[400] py-6
+}
+.choice-card__button {
+  @apply w-[24px] lg:w-[30px] flex items-end justify-end
+}
+
+.online-cover,
+.online-cover__wrapper,
+.online-cover__track,
+.online-cover__slide {
+  @apply h-[548px]
+}
+.online-cover__color {
+  @apply rounded-[32px] absolute top-0 left-0 z-[2] w-full h-full
+}
+.online-cover__image {
+  @apply rounded-[32px] object-cover w-full h-full
+}
+.online-cover__top {
+  @apply absolute z-[3] top-0 left-0 p-4 w-full
+}
+.online-cover__bottom {
+  @apply absolute bottom-0 left-0 z-[4] w-full p-4 flex items-center
+}
+
+@media (min-width: 1024px) {
+  .hero-cover__slide.is-active {
+    width: calc(60% - 16px) !important;
+  }
+}
+
+#hamburger_menu {
+  width: 26px;
+  height: 22px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#hamburger_menu span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #000000;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+#hamburger_menu span:nth-child(1) {
+  top: 0px;
+}
+
+#hamburger_menu span:nth-child(2),
+#hamburger_menu span:nth-child(3) {
+  top: 8px;
+}
+
+#hamburger_menu span:nth-child(4) {
+  top: 16px;
+}
+
+#hamburger_menu.open span:nth-child(1) {
+  top: 8px;
+  width: 0%;
+  left: 50%;
+}
+
+#hamburger_menu.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+#hamburger_menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+#hamburger_menu.open span:nth-child(4) {
+  top: 8px;
+  width: 0%;
+  left: 50%;
 }

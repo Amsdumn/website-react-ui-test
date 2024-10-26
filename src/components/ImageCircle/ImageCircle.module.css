@@ -1,0 +1,6 @@
+.imageCircle {
+  @apply rounded-full bg-[#E3E5E8] overflow-hidden
+}
+.imageCircle > img {
+  @apply object-cover
+}

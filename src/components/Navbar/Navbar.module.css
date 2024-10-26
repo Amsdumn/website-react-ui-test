@@ -1,0 +1,12 @@
+.navMenu {
+  @apply pb-40 lg:p-0;
+}
+.navMenu ul {
+  @apply lg:flex lg:items-center lg:justify-start lg:gap-8
+}
+.navMenu ul li {
+  @apply py-4 text-center border-b border-[#C1C7CD80] lg:border-transparent
+}
+.navMenu ul li a {
+  @apply text-white text-[20px] font-[400] lg:text-[#6A6A6A]
+}
